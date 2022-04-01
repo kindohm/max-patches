@@ -40,6 +40,42 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-36",
+					"linecount" : 3,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 764.529999999999973, 41.176472306251526, 456.4706010222435, 48.0 ],
+					"text" : "I want sweep shape to automatically update when sweep time is changed. When I change sweep time, the sweep shape changes back to zero (linear) instead of holding its negative shape."
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-31",
+					"linecount" : 7,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1109.482474853992244, 177.062352769374854, 150.0, 103.0 ],
+					"text" : "why won't this bang update sweep shape?\n\nsweep time causes it to bang, but why doesn't it get passed on to sweep shape?"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-21",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1082.944704704284732, 177.062352769374854, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-14",
 					"maxclass" : "comment",
 					"numinlets" : 1,
@@ -82,7 +118,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 962.945883800983438, 198.828234066963205, 58.0, 22.0 ],
+					"patching_rect" : [ 818.821760926246611, 221.181176176071176, 58.0, 22.0 ],
 					"text" : "loadbang"
 				}
 
@@ -323,7 +359,7 @@
 			}
 , 			{
 				"box" : 				{
-					"addpoints_with_curve" : [ 0.0, 12.000000000000004, 0, 0.0, 200.0, 1.0, 0, -0.8, 928.654789620257702, 1.0, 0, -0.945 ],
+					"addpoints_with_curve" : [ 0.0, 11.000000000000004, 0, 0.0, 103.0, 1.0, 0, -0.71, 928.654789620257702, 1.0, 0, -0.945 ],
 					"id" : "obj-5",
 					"maxclass" : "function",
 					"mode" : 1,
@@ -332,7 +368,7 @@
 					"outlettype" : [ "float", "", "", "bang" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 645.878820486068776, 287.651178262233771, 161.176468968391418, 85.882352352142334 ],
-					"range" : [ 1.0, 12.0 ]
+					"range" : [ 1.0, 11.0 ]
 				}
 
 			}
@@ -446,6 +482,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-30", 0 ],
+					"source" : [ "obj-21", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-5", 0 ],
 					"source" : [ "obj-25", 0 ]
 				}
@@ -453,7 +496,16 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-21", 0 ],
+					"order" : 0,
+					"source" : [ "obj-26", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-25", 0 ],
+					"order" : 1,
 					"source" : [ "obj-26", 0 ]
 				}
 
@@ -481,40 +533,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
-					"order" : 4,
-					"source" : [ "obj-34", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-19", 0 ],
-					"order" : 1,
-					"source" : [ "obj-34", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-26", 0 ],
-					"order" : 2,
-					"source" : [ "obj-34", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"order" : 3,
-					"source" : [ "obj-34", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-30", 0 ],
-					"order" : 0,
 					"source" : [ "obj-34", 0 ]
 				}
 
