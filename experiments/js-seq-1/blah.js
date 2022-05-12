@@ -6,6 +6,7 @@ var percentRepeat = 0;
 var allEventLengths = ['4n', '8dn', '8n', '16n'];
 var eventLengths = allEventLengths;
 var eventChans = [1,2];
+var restChan = 0;
 
 var weights = {
 	'4n': 1,
@@ -41,6 +42,10 @@ function getCurrentEventWeightsWithLengths(){
 	return vals;
 }
 
+function bang(){
+	generate();
+}
+
 function generate(){
 	var prev = [0,0];
 	
@@ -58,7 +63,7 @@ function generate(){
 		} else {
 			var rest = Math.random() < percentRest/100;
 			len = randLength(eventLengthsWithWeights);
-			chan = rest ? 0 : randChan();
+			chan = rest ? restChan : randChan();
 		}
 		prev = [len, chan];
 		outlet(0, i, len, chan);
@@ -104,7 +109,10 @@ function durationWeights(){
 }
 
 function chans(){
-	eventChans = arguments;
+	restChan = arguments[arguments.length - 1];
+	var toPop = arguments;
+	toPop.pop();
+	eventChans = toPop;
 	generate();
 
 }
