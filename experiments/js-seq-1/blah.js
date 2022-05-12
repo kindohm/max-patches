@@ -5,7 +5,7 @@ var percentRest = 0;
 var percentRepeat = 0;
 var allEventLengths = ['4n', '8dn', '8n', '16n'];
 var eventLengths = allEventLengths;
-var eventTypes = [1,2];
+var eventChans = [1,2];
 
 var weights = {
 	'4n': 1,
@@ -24,8 +24,8 @@ function randLength(lengths) {
 	return lengths[randInt(0, lengths.length-1)];
 }
 
-function randType() {
-	return eventTypes[randInt(0, eventTypes.length-1)];
+function randChan() {
+	return eventChans[randInt(0, eventChans.length-1)];
 }
 
 function getCurrentEventWeightsWithLengths(){
@@ -47,21 +47,21 @@ function generate(){
 	var eventLengthsWithWeights = getCurrentEventWeightsWithLengths();
 		
 	for (var i = 0; i < numEvents; i++){
-		var len, typ;
+		var len, chan;
 		var prevLen = prev[0];
-		var prevType = prev[1];
-		var repeat = i > 0 && prevType !== 0 && Math.random() < percentRepeat / 100;
+		var prevChan = prev[1];
+		var repeat = i > 0 && prevChan !== 0 && Math.random() < percentRepeat / 100;
 		
 		if (repeat){
 			len = prevLen
-			typ = prevType;
+			chan = prevChan;
 		} else {
 			var rest = Math.random() < percentRest/100;
 			len = randLength(eventLengthsWithWeights);
-			typ = rest ? 0 : randType();
+			chan = rest ? 0 : randChan();
 		}
-		prev = [len, typ];
-		outlet(0, i, len, typ);
+		prev = [len, chan];
+		outlet(0, i, len, chan);
 	}
 }
 
@@ -101,4 +101,10 @@ function durationWeights(){
 	weights["8n"] = arguments[2];
 	weights["16n"] = arguments[3];
 	generate();
+}
+
+function chans(){
+	eventChans = arguments;
+	generate();
+
 }
