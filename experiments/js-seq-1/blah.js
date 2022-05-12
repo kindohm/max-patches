@@ -7,6 +7,8 @@ var allEventLengths = ['4n', '8dn', '8n', '16n'];
 var eventLengths = allEventLengths;
 var eventChans = [1,2];
 var restChan = 0;
+var event2Probability = 25;
+var weightedEventChans = [1,2];
 
 var weights = {
 	'4n': 1,
@@ -26,7 +28,7 @@ function randLength(lengths) {
 }
 
 function randChan() {
-	return eventChans[randInt(0, eventChans.length-1)];
+	return weightedEventChans[randInt(0, weightedEventChans.length-1)];
 }
 
 function getCurrentEventWeightsWithLengths(){
@@ -109,10 +111,32 @@ function durationWeights(){
 }
 
 function chans(){
+	
 	restChan = arguments[arguments.length - 1];
-	var toPop = arguments;
-	toPop.pop();
-	eventChans = toPop;
+	var toPop = [];
+	for (var i = 0; i < arguments.length - 1; i++){
+		toPop.push(arguments[i]);
+	}
+	eventChans = toPop;	
+	updateWeightedEventChans();
 	generate();
 
+}
+
+function event2Prob(val){
+	event2Probability = val;
+	updateWeightedEventChans();
+	generate();
+}
+
+function updateWeightedEventChans(){
+	var newValues = [];
+	var event1Times = 100 - event2Probability;
+	for (var i = 0; i < event1Times; i++) {
+		newValues.push(eventChans[0]);
+	}
+	for (var i = 0; i < event2Probability; i++) {
+		newValues.push(eventChans[1]);
+	}
+	weightedEventChans = newValues;
 }
