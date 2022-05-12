@@ -70,7 +70,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 291.0, 313.0, 216.0, 22.0 ],
-					"text" : "2 4 7 7 7 7 2 6"
+					"text" : "8 3 8 8 4 5 0 0"
 				}
 
 			}
@@ -111,7 +111,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 291.0, 127.0, 230.0, 96.0 ],
+					"patching_rect" : [ 291.0, 118.0, 230.0, 96.0 ],
 					"setminmax" : [ 1.0, 8.0 ],
 					"settype" : 0,
 					"size" : 8
