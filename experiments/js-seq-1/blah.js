@@ -5,10 +5,10 @@ var percentRest = 0;
 var percentRepeat = 0;
 var allEventLengths = ['4n', '8dn', '8n', '16n'];
 var eventLengths = allEventLengths;
-var eventChans = [1,2];
-var restChan = 0;
+var eventTypes = [1,2];
+var restType = 0;
 var event2Probability = 25;
-var weightedEventChans = [1,2];
+var weightedEventTypes = [1,2];
 
 var weights = {
 	'4n': 1,
@@ -27,8 +27,8 @@ function randLength(lengths) {
 	return lengths[randInt(0, lengths.length-1)];
 }
 
-function randChan() {
-	return weightedEventChans[randInt(0, weightedEventChans.length-1)];
+function randType() {
+	return weightedEventTypes[randInt(0, weightedEventTypes.length-1)];
 }
 
 function getCurrentEventWeightsWithLengths(){
@@ -65,7 +65,7 @@ function generate(){
 		} else {
 			var rest = Math.random() < percentRest/100;
 			len = randLength(eventLengthsWithWeights);
-			chan = rest ? restChan : randChan();
+			chan = rest ? restType : randType();
 		}
 		prev = [len, chan];
 		outlet(0, i, len, chan);
@@ -110,33 +110,22 @@ function durationWeights(){
 	generate();
 }
 
-function chans(){
-	
-	restChan = arguments[arguments.length - 1];
-	var toPop = [];
-	for (var i = 0; i < arguments.length - 1; i++){
-		toPop.push(arguments[i]);
-	}
-	eventChans = toPop;	
-	updateWeightedEventChans();
-	generate();
-
-}
 
 function event2Prob(val){
 	event2Probability = val;
-	updateWeightedEventChans();
+	updateWeightedEventTypes();
 	generate();
 }
 
-function updateWeightedEventChans(){
+function updateWeightedEventTypes(){
 	var newValues = [];
 	var event1Times = 100 - event2Probability;
 	for (var i = 0; i < event1Times; i++) {
-		newValues.push(eventChans[0]);
+		newValues.push(eventTypes[0]);
 	}
 	for (var i = 0; i < event2Probability; i++) {
-		newValues.push(eventChans[1]);
+		newValues.push(eventTypes[1]);
 	}
-	weightedEventChans = newValues;
+	weightedEventTypes = newValues;
 }
+
