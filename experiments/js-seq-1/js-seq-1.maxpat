@@ -603,7 +603,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 430.08526885509491, 458.0, 262.0, 82.0 ],
-					"text" : "8nd 1 1"
+					"text" : "8n 0 2"
 				}
 
 			}
@@ -1191,17 +1191,17 @@
 					"restore" : 					{
 						"button" : [ 0.0 ],
 						"button[3]" : [ 0.0 ],
-						"number" : [ 21 ],
-						"number[1]" : [ 40 ],
-						"number[2]" : [ 46 ],
+						"number" : [ 28 ],
+						"number[1]" : [ 64 ],
+						"number[2]" : [ 0 ],
 						"number[3]" : [ 1 ],
 						"number[4]" : [ 1 ],
 						"number[5]" : [ 1 ],
 						"number[6]" : [ 1 ],
 						"number[7]" : [ 127 ],
 						"number[8]" : [ 180 ],
-						"radiogroup" : [ 0, 1, 1, 0 ],
-						"slider" : [ 15 ],
+						"radiogroup" : [ 1, 1, 1, 0 ],
+						"slider" : [ 43 ],
 						"toggle" : [ 1 ],
 						"umenu" : [ 0 ],
 						"umenu[1]" : [ 4 ]
@@ -1430,7 +1430,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 667.835001157122633, 118.751940999999988, 47.999999000000003, 66.0 ],
 					"size" : 4,
-					"values" : [ 0, 1, 1, 0 ],
+					"values" : [ 1, 1, 1, 0 ],
 					"varname" : "radiogroup"
 				}
 
