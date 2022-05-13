@@ -1,6 +1,6 @@
 inlets = 1;
 
-var numEvents = 8;
+var numEvents = 1;
 var percentRest = 0;
 var percentRepeat = 0;
 var allEventLengths = ['4n', '8dn', '8n', '16n'];
@@ -9,8 +9,6 @@ var eventTypes = [1,2];
 var restType = 0;
 var event2Probability = 25;
 var weightedEventTypes = [1,2];
-var fill1aOn = false;
-var fill1bOn = false;
 
 var weights = {
 	'4n': 1,
@@ -72,19 +70,7 @@ function generate(){
 		}
 		prev = [len, chan];
 		events.push({index: i, len: len, type: type});
-	}
-	
-	post('fill1aOn', fill1aOn, '\n');
-	post('fill1bOn', fill1bOn, '\n');
-	
-	post('original', '\n');
-	logColl(events);
-	
-	events = addFills(events);
-	
-	post('new', '\n');
-	logColl(events);
-	
+	}		
 	
 	for (var i = 0; i < events.length; i++){
 		outlet(0, events[i].index, events[i].len, events[i].type);
@@ -97,88 +83,6 @@ function logColl(events){
 		post(', ');
 	}
 	post('\n');
-}
-
-function addFills(events){
-	var newEvents = [];
-	var newIndex = 0;
-	
-	
-	for (var i = 0; i < events.length; i++){
-		var len = events[i].len;
-		var type = events[i].type;
-		
-		if (type === 2 || len === '16n' || (!fill1aOn && !fill1bOn)) {
-			var modifiedEvent = { index: newIndex, len: len, type: type };
-			newIndex++;
-			newEvents.push(modifiedEvent);
-		} else if (len === '4n' && type === 1 && fill1aOn && fill1bOn) {
-			var modifiedEvent = { index: newIndex, len: '16n', type: type };
-			newIndex++;
-			var fillAEvent = { index: newIndex, len: '16n', type: 3 };
-			newIndex++;
-			var fillBEvent = { index: newIndex, len: '8n', type: 4 };
-			newIndex++;
-			newEvents.push(modifiedEvent);
-			newEvents.push(fillAEvent);
-			newEvents.push(fillBEvent);
-		} else if (len === '8dn' && type === 1 && fill1aOn && fill1bOn) {
-			var modifiedEvent = { index: newIndex, len: '16n', type: type };
-			newIndex++;
-			var fillAEvent = { index: newIndex, len: '16n', type: 3 };
-			newIndex++;
-			var fillBEvent = { index: newIndex, len: '16n', type: 4 };
-			newIndex++;
-			newEvents.push(modifiedEvent);
-			newEvents.push(fillAEvent);
-			newEvents.push(fillBEvent);
-		} else if (len === '8n' && type === 1 && fill1aOn) {
-			var modifiedEvent = { index: newIndex, len: '16n', type: type };
-			newIndex++;
-			var fillAEvent = { index: newIndex, len: '16n', type: 3 };
-			newIndex++;
-			newEvents.push(modifiedEvent);
-			newEvents.push(fillAEvent);
-		} else if (len === '4n' && type === 1 && fill1aOn && !fill1bOn) {
-			var modifiedEvent = { index: newIndex, len: '16n', type: type };
-			newIndex++;
-			var fillAEvent = { index: newIndex, len: '8dn', type: 3 };
-			newIndex++;
-			newEvents.push(modifiedEvent);
-			newEvents.push(fillAEvent);
-		} else if (len === '8dn' && type === 1 && fill1aOn && !fill1bOn) {
-			var modifiedEvent = { index: newIndex, len: '16n', type: type };
-			newIndex++;
-			var fillAEvent = { index: newIndex, len: '8n', type: 3 };
-			newIndex++;
-			newEvents.push(modifiedEvent);
-			newEvents.push(fillAEvent);
-		} else if (len === '8n' && type === 1 && fill1aOn && !fill1bOn) {
-			var modifiedEvent = { index: newIndex, len: '16n', type: type };
-			newIndex++;
-			var fillAEvent = { index: newIndex, len: '16n', type: 3 };
-			newIndex++;
-			newEvents.push(modifiedEvent);
-			newEvents.push(fillAEvent);
-		} else if (len === '4n' && type === 1 && !fill1aOn && fill1bOn) {
-			var modifiedEvent = { index: newIndex, len: '8n', type: type };
-			newIndex++;
-			var fillBEvent = { index: newIndex, len: '8n', type: 4 };
-			newIndex++;
-			newEvents.push(modifiedEvent);
-			newEvents.push(fillBEvent);
-		} else if (len === '8dn' && type === 1 && !fill1aOn && fill1bOn) {
-			var modifiedEvent = { index: newIndex, len: '8n', type: type };
-			newIndex++;
-			var fillBEvent = { index: newIndex, len: '16n', type: 4 };
-			newIndex++;
-			newEvents.push(modifiedEvent);
-			newEvents.push(fillBEvent);
-		}		
-
-	}
-	
-	return newEvents;
 }
 
 
