@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 77.0, 2492.0, 1289.0 ],
+		"rect" : [ 26.0, 85.0, 2492.0, 1289.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,88 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-57",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 158.958337207635395, 582.0, 71.0, 22.0 ],
+					"text" : "s playSynth"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-43",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 742.666666150093079, 775.0, 99.0, 22.0 ],
+					"text" : "r setSynthDevice"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-44",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 798.666666150093079, 691.5, 29.5, 22.0 ],
+					"text" : "1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-45",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 742.666666150093079, 691.5, 29.5, 22.0 ],
+					"text" : "60"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-46",
+					"maxclass" : "newobj",
+					"numinlets" : 3,
+					"numoutlets" : 2,
+					"outlettype" : [ "float", "float" ],
+					"patching_rect" : [ 742.666666150093079, 720.5, 108.0, 22.0 ],
+					"text" : "makenote 127 100"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-49",
+					"maxclass" : "newobj",
+					"numinlets" : 3,
+					"numoutlets" : 0,
+					"patching_rect" : [ 742.666666150093079, 746.5, 59.0, 22.0 ],
+					"text" : "noteout 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-50",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 742.666666150093079, 659.0, 69.0, 22.0 ],
+					"text" : "r playSynth"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-138",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
@@ -59,7 +141,8 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 310.0, 458.0, 116.0, 82.0 ]
+					"patching_rect" : [ 310.0, 458.0, 116.0, 82.0 ],
+					"varname" : "number[9]"
 				}
 
 			}
@@ -146,7 +229,8 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 854.666666150093079, 408.0, 24.0, 24.0 ]
+					"patching_rect" : [ 854.666666150093079, 408.0, 24.0, 24.0 ],
+					"varname" : "toggle[2]"
 				}
 
 			}
@@ -158,7 +242,8 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 693.666666150093079, 408.0, 24.0, 24.0 ]
+					"patching_rect" : [ 693.666666150093079, 408.0, 24.0, 24.0 ],
+					"varname" : "toggle[1]"
 				}
 
 			}
@@ -603,7 +688,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 430.08526885509491, 458.0, 262.0, 82.0 ],
-					"text" : "8n 0 2"
+					"text" : "8nd 1 1"
 				}
 
 			}
@@ -750,7 +835,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-29",
-					"items" : [ "Microsoft GS Wavetable Synth", ",", "loopMIDI Port", ",", "TouchOSC Bridge", ",", "3- Focusrite USB MIDI", ",", "Elektron Syntakt" ],
+					"items" : [ "Microsoft GS Wavetable Synth", ",", "loopMIDI Port", ",", "Elektron Syntakt", ",", "TouchOSC Bridge", ",", "3- Focusrite USB MIDI" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -800,7 +885,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-67",
-					"items" : [ "Microsoft GS Wavetable Synth", ",", "loopMIDI Port", ",", "TouchOSC Bridge", ",", "3- Focusrite USB MIDI", ",", "Elektron Syntakt" ],
+					"items" : [ "Microsoft GS Wavetable Synth", ",", "loopMIDI Port", ",", "Elektron Syntakt", ",", "TouchOSC Bridge", ",", "3- Focusrite USB MIDI" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -1191,20 +1276,23 @@
 					"restore" : 					{
 						"button" : [ 0.0 ],
 						"button[3]" : [ 0.0 ],
-						"number" : [ 28 ],
-						"number[1]" : [ 64 ],
-						"number[2]" : [ 0 ],
+						"number" : [ 40 ],
+						"number[1]" : [ 50 ],
+						"number[2]" : [ 17 ],
 						"number[3]" : [ 1 ],
-						"number[4]" : [ 1 ],
-						"number[5]" : [ 1 ],
-						"number[6]" : [ 1 ],
+						"number[4]" : [ 8 ],
+						"number[5]" : [ 3 ],
+						"number[6]" : [ 2 ],
 						"number[7]" : [ 127 ],
 						"number[8]" : [ 180 ],
-						"radiogroup" : [ 1, 1, 1, 0 ],
-						"slider" : [ 43 ],
+						"number[9]" : [ 5 ],
+						"radiogroup" : [ 1, 1, 1, 1 ],
+						"slider" : [ 35 ],
 						"toggle" : [ 1 ],
-						"umenu" : [ 0 ],
-						"umenu[1]" : [ 4 ]
+						"toggle[1]" : [ 0 ],
+						"toggle[2]" : [ 1 ],
+						"umenu" : [ 1 ],
+						"umenu[1]" : [ 2 ]
 					}
 ,
 					"text" : "autopattr @autoname 1",
@@ -1430,7 +1518,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 667.835001157122633, 118.751940999999988, 47.999999000000003, 66.0 ],
 					"size" : 4,
-					"values" : [ 1, 1, 1, 0 ],
+					"values" : [ 1, 1, 1, 1 ],
 					"varname" : "radiogroup"
 				}
 
@@ -1990,6 +2078,41 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-49", 0 ],
+					"source" : [ "obj-43", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 2 ],
+					"source" : [ "obj-44", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-46", 0 ],
+					"source" : [ "obj-45", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 1 ],
+					"source" : [ "obj-46", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-49", 0 ],
+					"source" : [ "obj-46", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-75", 0 ],
 					"source" : [ "obj-47", 0 ]
 				}
@@ -2007,6 +2130,22 @@
 					"destination" : [ "obj-25", 0 ],
 					"midpoints" : [ 94.50000387430191, 262.083333104848862, 23.00000387430191, 262.083333104848862 ],
 					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-44", 0 ],
+					"order" : 0,
+					"source" : [ "obj-50", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-45", 0 ],
+					"order" : 1,
+					"source" : [ "obj-50", 0 ]
 				}
 
 			}
@@ -2042,7 +2181,16 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-57", 0 ],
+					"order" : 1,
+					"source" : [ "obj-65", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-64", 0 ],
+					"order" : 0,
 					"source" : [ "obj-65", 0 ]
 				}
 
@@ -2239,13 +2387,6 @@
 			}
  ],
 		"dependency_cache" : [ 			{
-				"name" : "Untitled.txt",
-				"bootpath" : "~/Desktop",
-				"patcherrelativepath" : "../../../../Desktop",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "blah.js",
 				"bootpath" : "~/code/max-patches/experiments/js-seq-1",
 				"patcherrelativepath" : ".",
