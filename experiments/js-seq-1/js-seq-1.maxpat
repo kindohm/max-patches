@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 42.0, 85.0, 1010.0, 1273.0 ],
+		"rect" : [ 42.0, 85.0, 750.0, 1273.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,76 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-42",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 624.0, 705.0, 50.0, 22.0 ],
+					"text" : "fill1b $1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-40",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 520.0, 696.0, 50.0, 22.0 ],
+					"text" : "fill1a $1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-37",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 600.58167099297043, 605.0, 80.0, 20.0 ],
+					"text" : "fill event #1b"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-38",
+					"maxclass" : "toggle",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 600.58167099297043, 632.66666966676712, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-26",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 516.500005781650543, 605.0, 80.0, 20.0 ],
+					"text" : "fill event #1a"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-24",
+					"maxclass" : "toggle",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 516.500005781650543, 632.66666966676712, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-20",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -56,7 +126,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 290.0, 596.0, 47.0, 22.0 ],
+					"patching_rect" : [ 282.0, 646.0, 47.0, 22.0 ],
 					"text" : "print ---"
 				}
 
@@ -73,15 +143,15 @@
 					"patching_rect" : [ 49.0, 49.0, 147.0, 23.0 ],
 					"restore" : 					{
 						"button" : [ 0.0 ],
-						"number" : [ 12 ],
-						"number[1]" : [ 6 ],
-						"number[2]" : [ 12 ],
+						"number" : [ 4 ],
+						"number[1]" : [ 0 ],
+						"number[2]" : [ 0 ],
 						"number[3]" : [ 1 ],
 						"number[4]" : [ 2 ],
 						"number[5]" : [ 2 ],
-						"number[6]" : [ 4 ],
-						"radiogroup" : [ 1, 1, 0, 1 ],
-						"slider" : [ 60 ]
+						"number[6]" : [ 1 ],
+						"radiogroup" : [ 1, 1, 1, 1 ],
+						"slider" : [ 35 ]
 					}
 ,
 					"text" : "autopattr @autoname 1",
@@ -315,7 +385,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 580.000006139278412, 162.751941204071045, 47.999999284744263, 66.0 ],
 					"size" : 4,
-					"values" : [ 1, 1, 0, 1 ],
+					"values" : [ 1, 1, 1, 1 ],
 					"varname" : "radiogroup"
 				}
 
@@ -544,13 +614,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-17", 0 ],
-					"source" : [ "obj-20", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-6", 0 ],
 					"source" : [ "obj-20", 1 ]
 				}
@@ -567,6 +630,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"source" : [ "obj-23", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-40", 0 ],
+					"source" : [ "obj-24", 0 ]
 				}
 
 			}
@@ -621,6 +691,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-42", 0 ],
+					"source" : [ "obj-38", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"source" : [ "obj-4", 0 ]
 				}
@@ -628,15 +705,22 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-15", 0 ],
-					"source" : [ "obj-48", 0 ]
+					"destination" : [ "obj-2", 0 ],
+					"source" : [ "obj-40", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-5", 0 ],
-					"source" : [ "obj-6", 0 ]
+					"destination" : [ "obj-2", 0 ],
+					"source" : [ "obj-42", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-15", 0 ],
+					"source" : [ "obj-48", 0 ]
 				}
 
 			}
@@ -663,6 +747,13 @@
 			}
  ],
 		"dependency_cache" : [ 			{
+				"name" : "Untitled.txt",
+				"bootpath" : "~/Desktop",
+				"patcherrelativepath" : "../../../../Desktop",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "blah.js",
 				"bootpath" : "~/code/max-patches/experiments/js-seq-1",
 				"patcherrelativepath" : ".",
