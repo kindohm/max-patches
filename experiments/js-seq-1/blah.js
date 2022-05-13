@@ -3,7 +3,7 @@ inlets = 1;
 var numEvents = 1;
 var percentRest = 0;
 var percentRepeat = 0;
-var allEventLengths = ['4n', '8dn', '8n', '16n'];
+var allEventLengths = ['4n', '8nd', '8n', '16n'];
 var eventLengths = allEventLengths;
 var eventTypes = [1,2];
 var restType = 0;
@@ -12,7 +12,7 @@ var weightedEventTypes = [1,2];
 
 var weights = {
 	'4n': 1,
-	'8dn': 1,
+	'8nd': 1,
 	'8n': 1,
 	'16n': 1
 };
@@ -55,7 +55,7 @@ function generate(){
 	
 		
 	for (var i = 0; i < numEvents; i++){
-		var len, chan;
+		var len, chan, rest;
 		var prevLen = prev[0];
 		var prevType = prev[1];
 		var repeat = i > 0 && prevType !== 0 && Math.random() < percentRepeat / 100;
@@ -63,28 +63,20 @@ function generate(){
 		if (repeat){
 			len = prevLen
 			type = prevType;
+			rest = false;
 		} else {
 			var rest = Math.random() < percentRest/100;
 			len = randLength(eventLengthsWithWeights);
-			type = rest ? restType : randType();
+			type = randType();
 		}
-		prev = [len, chan];
-		events.push({index: i, len: len, type: type});
+		prev = [len, type];
+		events.push({index: i, len: len, type: type, rest: rest ? 0 : 1});
 	}		
 	
 	for (var i = 0; i < events.length; i++){
-		outlet(0, events[i].index, events[i].len, events[i].type);
+		outlet(0, events[i].index, events[i].len, events[i].rest, events[i].type);
 	}	
 }
-
-function logColl(events){
-	for (var i = 0; i < events.length; i++){
-		post(events[i].index, events[i].len, events[i].type);
-		post(', ');
-	}
-	post('\n');
-}
-
 
 function rests(val) {
 	percentRest = parseInt(val);
@@ -117,7 +109,7 @@ function durations(){
 
 function durationWeights(){
 	weights["4n"] = arguments[0];
-	weights["8dn"] = arguments[1];
+	weights["8nd"] = arguments[1];
 	weights["8n"] = arguments[2];
 	weights["16n"] = arguments[3];
 	generate();
